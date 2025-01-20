@@ -3,21 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
-    <link rel="stylesheet" href="A.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root{
+    --dark-clr:#081d2c;
+    --second-dark-crl: #112e42;
+    --text-clr: #f1f5f9;
+    --light-text-clr: #c9d9e8;
+    --global-clr: #00b7ff;
+    --btn-clr:rgb(0, 89, 255);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+html{
+    overflow: hidden;
+    line-height: calc(1em + 0.5rem);
+}
+body{
+    font-family: "Jost", serif;
+    background: var(--dark-clr);
+    color: var(--text-clr);
+    line-height: 1.3;
+}
+
+.footer {
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin-top: 25px;
+}
+.B{
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin-top: 0.5px;
+}
+
+header{
+    width: 100%;
+    background: transparent;
+    z-index: 1000;
+    padding: 1.5rem 0;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 10%;
+}
+.logo{
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-left: -70px;
+    color: white;
+    margin-left: 0.5px;
+}
+
+.logo span{
+    color: var(--global-clr);
+}
+.navbar ul{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    position: relative;
+}
+header .navbar ul li{
+    position: relative;
+    margin-right: 20px;
+}
+.navbar ul li a{
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-left: 20px;
+    color: var(--text-clr);
+}
+.navbar ul li a:hover{
+    color: var(--global-clr);
+}
+header .navbar ul li a::after{
+    content: '';
+    position: absolute;
+    background: var(--global-clr);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -2px;
+    pointer-events: none;
+    transition: .3s;
+}
+header .navbar ul li a:hover::after, header .navbar ul li a.active::after{
+    width: 100%;
+}
+.cvbtn{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: rgb(0, 166, 255);
+    color: var(--text-clr);
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: cyan;
+    cursor: pointer;
+    transition: .5s;
+}
+.cvbtn:hover{
+    box-shadow: 0 0 5px var(--btn-clr),
+                0 0 10px var(--btn-clr),    
+                0 0 15px var(--btn-clr);
+}
+.hero-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 10%;
+}
+.hero-image img{
+    height: 370px;
+    width: 350px;
+    min-width: 150px;
+    filter: drop-shadow(0 0 90px var(--global-clr));
+    margin-left: -20%;
+    margin-top: -10px;
+    border-radius: 350px;
+    filter: brightness(1.1);
+    transform: .5s ease-in-out;
+    animation: animate 1.0s ease-in-out forwards infinite;
+    box-shadow: 0px 0px 70px #00aaff;
+}
+.hero-image img:hover{
+    box-shadow: 0px 0px 80px #00aaff;
+}  
+@keyframes animate{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+.hero-btn{
+    display: flex;
+    gap: 1.5rem;
+}
+.hero-btn .btn{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 100%;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.6rem 0;
+    color: var(--dark-clr);
+    background: var(--global-clr);
+    border: 2px solid var(--global-clr);
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+.btn:hover{
+    color: var(--global-clr);
+}
+.hero-btn .btn:nth-child(2){
+    background: transparent;
+    color: var(--global-clr);
+}
+.btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--dark-clr);
+    transition: .5s;
+    z-index: -1;
+}
+.btn:hover::before{
+    width: 100%;
+}
+
+.social-icons {
+    margin-top: 10%;
+    position:relative;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+.social-icons a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+.social-icons a:hover {
+    color: #081b29;
+    transform: translateY(-15px);
+}
+.social-icons a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    background: #00abf0;
+}
+.social-icons a:hover::before {
+    width: 100%;
+}
+
+
+.hero-btn a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 100%;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    font-size: 1.3rem;
+    padding: 0.6rem 0;
+    color: var(--dark-clr);
+    background: var(--global-clr);
+    border: 2px solid var(--global-clr);
+}
+.hero-btn a:nth-child(2) {
+    background: transparent;
+    color:#00abf0;
+}
+.hero-btn a:nth-child(2):hover{
+    color:#081b29;
+}
+.hero-btn a:nth-child(2)::before {
+    background: #00abf0;
+    transition: .5s;
+}
+.hero-btn a:hover {
+    color: #00abf0;
+}
+.hero-btn a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    border-radius: 6px;
+    z-index: -1;
+    transition: .5s;
+}
+.hero-btn a:hover::before {
+    width: 100%;
+}
+.SI{
+    font-size: 1.5rem;
+    color: lightcoral;
+}
+.hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+        .navbar ul {
+            flex-direction: row;
+        }
+        @media (max-width: 768px) {
+            header{
+                padding: 5px;
+            }
+            .navbar{
+                padding: 5px 20px;
+            }
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                background: var(--second-dark-crl);
+                position: absolute;
+                right: 0;
+                top: 7%;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            .navbar ul.active {
+                display: flex;
+            }
+            .hero-image img{
+                height: 260px;
+                width: 250px;
+                margin-left: 6%;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-container{
+                display:inherit;
+            }
+            .social-icons{
+                top: 0px;
+                margin-bottom: 5%;
+            }
+            .hero-btn{
+                margin-top:5%;
+            }
+            .S{
+                position: absolute;
+                top: 55%;
+                left: 10%;
+            }
+            .hero-content{
+            margin-top: 25%;
+            }
+        }
+
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">Tahir<span>Hamid</span></a>
+            <a href="#" class="logo">Tahir<span> Hamid</span></a>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="https://fr.wikipedia.org/wiki/Tahir_Hamid_Nguilin">About</a></li>
                 <li><a href="https://www.jeuneafrique.com/1459106/economie-entreprises/tahir-hamid-nguilin-redresseur-de-dette-en-chef-du-tchad/">Services</a></li>
                 <li><a href="https://www.finances.gouv.td/index.php/component/k2/item/679-m-tahir-hamid-nguilin-est-nomme-ministre-d-etat-ministre-des-finances-du-budget-de-l-economie-et-du-plan-de-la-5eme-republique">Contact</a></li>
             </ul>
-            <a href="https://www.imf.org/en/News/Articles/2023/10/14/transcript-of-press-briefing-african-finance-minister-s-press-conference" class="cvbtn">Download CV<i class="fa-solid fa-download"></i></a>
+            <div class="S">
+                <a href="https://www.imf.org/en/News/Articles/2023/10/14/transcript-of-press-briefing-african-finance-minister-s-press-conference" class="cvbtn">Download CV<i class="fa-solid fa-download"></i></a>
+            </div>
+            <div class="hamburger">
+                <i class="fa fa-bars"></i>
+            </div>
         </nav>
     </header>
     <section id="home" class="hero-container">
@@ -25,11 +386,10 @@
                 <img src="onclo.png" alt="image">
             </div>    
             <div class="hero-content">
-                <h3>Hello, I'm</h3>
-                <h1>Tahir Hamid Nguilin</h1>
+                <h3>Hello, I'm <span class="SI">Tahir Hamid Nguilin</span></h3>
                 <h2>And I'm <span> Minister of State, Minister of Finance, Budget, Economy and Planning<span></h2>
-                <p>Appointed Director General of the Treasury at a very young age in March 2005, Mr. Tahir Hamid Nguilin (42 years old), has extensive, multidisciplinary, versatile and above all high-level experience in banking, currency, economics, taxation, accounting, management, telecommunications, public finance, business management and hydrocarbons.</p>
-            <div class="social-icons">
+                <!-- <p>Appointed Director General of the Treasury at a very young age in March 2005, Mr. Tahir Hamid Nguilin (42 years old), has extensive, multidisciplinary, versatile and above all high-level experience in banking, currency, economics, taxation, accounting, management, telecommunications, public finance, business management and hydrocarbons.</p> -->
+                <div class="social-icons">
                 <a href="https://www.facebook.com/profile.php?id=100064839215331"><i class="fa-brands fa-square-facebook"></i></a>
                 <a href="https://twitter.com/TahirHamidN?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa-brands fa-square-twitter"></i></a>
                 <a href="https://www.instagram.com/tahirhamidng/"><i class="fa-brands fa-square-instagram"></i></a>
@@ -41,5 +401,15 @@
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const menu = document.querySelector('.navbar ul');
+
+            hamburger.addEventListener('click', () => {
+                menu.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
